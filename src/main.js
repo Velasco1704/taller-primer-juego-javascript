@@ -130,6 +130,7 @@ function gameWin() {
     }
   } else {
     localStorage.setItem("recordTime", playerTime);
+    result.innerText = "Ganaste";
   }
   clearInterval(timeInterval);
 }
