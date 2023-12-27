@@ -10,9 +10,11 @@ const livesSpan = document.querySelector("#lives");
 const time = document.querySelector("#time");
 const record = document.querySelector("#record");
 const result = document.querySelector("#result");
+const resetButton = document.querySelector("#resetButton");
 
 window.addEventListener("load", setCanvasSize);
 window.addEventListener("resize", setCanvasSize);
+window.addEventListener("click", resetGame);
 
 window.addEventListener("keydown", moveByKey);
 buttonUp.addEventListener("click", moveUp);
@@ -120,6 +122,7 @@ function levelFail() {
 function gameWin() {
   const recordTime = localStorage.getItem("recordTime");
   const playerTime = Date.now() - timeStart;
+  clearInterval(timeInterval);
 
   if (recordTime) {
     if (recordTime >= playerTime) {
@@ -132,7 +135,10 @@ function gameWin() {
     localStorage.setItem("recordTime", playerTime);
     result.innerText = "Ganaste";
   }
-  clearInterval(timeInterval);
+}
+
+function resetGame() {
+  location.reload();
 }
 
 function showLives() {

@@ -32,6 +32,12 @@ button {
   color: black;
 }
 
+.reset-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
 .messages {
   display: flex;
   flex-wrap: wrap;
